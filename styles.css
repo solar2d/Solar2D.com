@@ -1,3 +1,56 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "icons";
+  src: url("fonts/icons.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "icons" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  top: 0.15em;
+}
+
+.icon-donate:before {
+  content: "\61";
+}
+.icon-docs:before {
+  content: "\64";
+}
+.icon-github:before {
+  content: "\67";
+}
+.icon-patreon:before {
+  content: "\70";
+}
+.icon-facebook:before {
+  content: "\66";
+}
+.icon-download:before {
+  content: "\77";
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url(fonts/SourceSansPro-Light.ttf) format('truetype');
+}
+
+
 body {
   font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
   background: #15073e;
