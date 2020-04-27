@@ -59,21 +59,6 @@ body {
   font-weight: 200;
 }
 
-@media all and (max-width: 800px) {
-  .left, .right{
-    padding: 0px;
-    margin: 0px;
-    width: 80%;
-    display: inline-block;
-    text-align: center;
-  }
-
-  #header {
-    object-position: center;
-    text-align: center;
-  }
-}
-
 .button {
   padding: 0.75em 1em;
   border-radius: 2em;
@@ -150,3 +135,35 @@ a {
   text-align: center;
   padding: 2em 2em 0 2em;
 }
+
+@media all and (max-width: 800px) {
+  .left, .right{
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+  }
+  .content {
+    margin: 20px;
+    border-radius: 20px;
+    padding: 1em 0 1em 0;
+  }
+  #header .inner {
+    padding: 0;
+    width: 90%;
+  }
+  #header h1 {
+    font-size: 2.5em;
+  }
+  #header img {
+    object-position: center;
+  }
+  #header {
+    text-align: center;
+  }
+  .lr {
+    padding: 0;
+  }
+}
+
