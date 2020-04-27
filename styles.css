@@ -1,0 +1,152 @@
+body {
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  background: #15073e;
+  color: #fff;
+}
+
+.content {
+  background: #fff;
+  margin: 20px;
+  border-radius: 20px;
+  color: #0b0146;
+  padding: 3em 0 3em 0;
+}
+
+#header {
+  width: 100%;
+}
+
+#header h1 {
+  font-weight: 300;
+  margin: 0;
+  font-size: 3.2em;
+}
+
+#header .inner {
+  margin: auto;
+  margin-top: 10px
+  padding: 10px;
+  width: 80%;
+}
+
+.left, .right{
+  padding: 0px;
+  margin: 0px;
+  width: 50%;
+  display: inline-block;
+}
+.left {
+  text-align: right;
+}
+.right {
+  text-align: left;
+}
+
+.lr {
+  padding: 20px;
+}
+
+#header img {
+  object-fit: contain;
+  object-position: right;
+  height: 145px;
+  width: 100%
+}
+
+#header h3 {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 200;
+}
+
+@media all and (max-width: 800px) {
+  .left, .right{
+    padding: 0px;
+    margin: 0px;
+    width: 80%;
+    display: inline-block;
+    text-align: center;
+  }
+
+  #header {
+    object-position: center;
+    text-align: center;
+  }
+}
+
+.button {
+  padding: 0.75em 1em;
+  border-radius: 2em;
+  display: inline-block;
+  color: #fff;
+  background-color: #4fc08d;
+  transition: all 0.15s ease;
+  box-sizing: border-box;
+  border: 1px solid #4fc08d;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.footer {
+  font-size: 0.75em;
+  text-align: center;
+}
+
+.footer .links {
+  font-size: 2em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer .links a {
+  margin: 0.3em;
+}
+
+.footer .copyright {
+  padding: 0.3em;
+}
+
+.advantages .inner {
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.point {
+  min-width: 250px;
+  text-align: center;
+  width: 200px;
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+  padding: 0 2em;
+}
+
+.point h3 {
+  margin: 0;
+  padding: 1em 0 0 0;
+  font-size: 1.5em;
+  color: #080443d6;
+  font-weight: 200;
+}
+.point p {
+  margin-top: 0.5em;
+  padding-bottom: 0.3em;
+}
+
+.advantages {
+  padding: 1em 0 1em 0;
+  background: #80808020;
+}
+
+.support {
+  text-align: center;
+  padding: 2em 2em 0 2em;
+}
