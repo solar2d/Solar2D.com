@@ -1,0 +1,3 @@
+Solar2D does not send or collect any data from users of apps built with Solar2D.
+
+Limited analytics may be collected from Solar2D itself to make the product better.
