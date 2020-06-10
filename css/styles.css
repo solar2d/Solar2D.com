@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.tag-line {
+  font-weight: bold;
+}
+
+.solar-orange {
+  color: orangered;
+}
+
+.solar-blue {
+  color: midnightblue;
+}
+
+.solar-gold {
+  color: gold;
+}
