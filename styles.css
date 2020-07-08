@@ -5,7 +5,6 @@
   src: url("fonts/icons.ttf") format('truetype');
   font-weight: normal;
   font-style: normal;
-
 }
 
 [class^="icon-"]:before,
@@ -23,24 +22,34 @@
   top: 0.15em;
 }
 
-.icon-donate:before {
+.icon-docs:before {
   content: "\61";
 }
-.icon-docs:before {
-  content: "\64";
-}
 .icon-github:before {
-  content: "\67";
+  content: "\62";
 }
 .icon-patreon:before {
-  content: "\70";
+  content: "\63";
 }
 .icon-facebook:before {
-  content: "\66";
+  content: "\64";
 }
 .icon-download:before {
-  content: "\77";
+  content: "\65";
 }
+.icon-donate:before {
+  content: "\66";
+}
+.icon-discord:before {
+  content: "\67";
+}
+.icon-discourse:before {
+  content: "\68";
+}
+.icon-play:before {
+  content: "\69";
+}
+
 
 @font-face {
   font-family: 'Source Sans Pro';
