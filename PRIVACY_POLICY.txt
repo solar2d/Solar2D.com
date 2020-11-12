@@ -1,7 +1,6 @@
-
-Games and Apps built with Solar2D:
+Games and Apps built using Solar2D:
 Solar2D does not send or collect any data from end-users of built apps.
 
 
 Solar2D Tooling (Simulator, Native):
-Solar2D may collect limited analytics to make products better.
+Solar2D may collect anonymised limited analytics to make products better.
