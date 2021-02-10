@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+        <style>
+            h1 {
+                font-family: Pacifico, sans-serif;
+                font-size: 4em;
+                color: #3eb5f1;
+                margin: 0;
+            }
+
+            h2 {
+                font-weight: 300;
+                font-family: sans-serif;
+            }
+
+            .centered {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+
+            #ferris {
+                width: 75%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="centered" id="mainContainer">
+            <h1>Verify supporter status</h1>
+            <div>
+                <h2>1. Connect GitHub or Patreon</h2>
+                <button type="button" onclick="connectGitHub()" id="gh_button">Connect GitHub</button>
+                or
+                <button type="button" onclick="connectPatreon()" id="pt_button">Connect Patreon</button>
+                <h2>2. Discord user to add role</h2>
+                <button type="button" onclick="connectDiscord()" id="ds_button">Connect Discord</button>
+                <h2>3. Finalize everything</h2>
+                <button type="button" onclick="submitRequest()" id="rq_button" disabled>Submit</button>
+            </div>
+            <br><br><br>
+            <h4>This site does not store any information. If error occurs refresh the page and start over.</h4>
+        </div>
+    </body>
+
+    <script>
+        const submission = {}
+        const gh_button = document.getElementById("gh_button")
+        const pt_button = document.getElementById("pt_button")
+        const ds_button = document.getElementById("ds_button")
+        const rq_button = document.getElementById("rq_button")
+
+        async function submitRequest() {
+            gh_button.disabled = true
+            pt_button.disabled = true
+            ds_button.disabled = true
+            rq_button.disabled = true
+            rq_button.innerText = "..."
+            const init = {
+                body: JSON.stringify(submission),
+                method: "POST",
+                mode: 'cors',
+                headers: {
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json",
+                },
+            }
+            const response = await fetch("https://supporters.solar2d.workers.dev/submit", init)
+            const data = await response.json();
+            if(data.ok) {
+                document.getElementById("mainContainer").innerHTML = `<h1>All done, Supporter 💖!</h1><p>You now have the Supporter role on our <a href="https://discord.gg/WMtCemc">discord</a> server. It grants you access to Supporter's Club section.</p>`
+            } else {
+                document.getElementById("mainContainer").innerHTML = `<h3>Opps! Something went wrong (${data.error})</h3><p>If this still doesn't work, contact Vlad on solar2d.com email or at our discord</p>`
+            }
+        }
+
+        async function messageProcessor(event) {
+            const access_token = "" + event.data.access_token
+            if(event.data.site === 'github') {
+                const graphQLRequest = `{
+                    vlad: user(login: "shchvova") {
+                        viewerIsSponsoring
+                    }
+                }`
+                const init = {
+                    body: JSON.stringify({query:graphQLRequest}),
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json;charset=UTF-8",
+                        "accept": "application/json",
+                        "Authorization": `token ${access_token}`
+                    },
+                }
+                const response = await fetch("https://api.github.com/graphql", init)
+                const responseData = await response.json()
+                const data = responseData.data
+                const sponsoring = !!data.vlad.viewerIsSponsoring
+                gh_button.innerText = sponsoring ? 'OK!' : 'Not a Sponsor :('
+                if(sponsoring) {
+                    submission.gh_token = access_token
+                }
+            } else if (event.data.site === 'patreon') {
+                pt_button.innerText = event.data.patreonOk ? 'OK!' : 'Not a Patron :('
+                if(event.data.patreonOk) {
+                    submission.pt_token = access_token
+                }
+            } else if (event.data.site === 'discord') {
+                const init = {
+                    method: "GET",
+                    headers: {
+                        "accept": "application/json",
+                        "Authorization": `Bearer ${access_token}`
+                    },
+                }
+                const response = await fetch("https://discord.com/api/v6/users/@me", init)
+                const data = await response.json()
+                ds_button.innerText = `Signed as: ${data.username}`
+                if(data.id) {
+                    submission.discord_id = data.id
+                }
+            }
+            rq_button.disabled = !( submission.discord_id && (submission.gh_token || submission.pt_token) )
+        }
+        window.addEventListener('message', messageProcessor)
+        function connectGitHub() {
+            gh_button.disabled = true
+            gh_button.innerText = '...'
+            window.open("https://github.com/login/oauth/authorize?client_id=eea1a1d16ae9e160185a&scope=read:user&allow_signup=false", "Login with Github", 'toolbar=no, menubar=no, width=400, height=600')
+        }
+        function connectPatreon() {
+            pt_button.disabled = true
+            pt_button.innerText = '...'
+            window.open("https://www.patreon.com/oauth2/authorize?client_id=l4YlAvUnfrNrTk9uiupqgnAb3PxDIScWv_FU2f5GVrCiyxEIJCeALuxzLB9R335s&scope=identity.memberships&allow_signup=false&response_type=code&redirect_uri=https://supporters.solar2d.workers.dev/patreon-callback", "Login with Patreon", 'toolbar=no, menubar=no, width=400, height=600')
+        }
+        function connectDiscord() {
+            ds_button.disabled = true
+            ds_button.innerText = '...'
+            window.open("https://discord.com/api/oauth2/authorize?client_id=808744695009378374&redirect_uri=https%3A%2F%2Fsupporters.solar2d.workers.dev%2Fdiscord-callback&response_type=token&scope=identify", "Login with Discord", 'toolbar=no, menubar=no, width=400, height=750')
+        }
+        </script>
+</html>
