@@ -30,6 +30,7 @@
   <link rel="icon" type="image/png" sizes="96x96" href="https://solar2d.com/images/icon-96x96.png">
   <link rel="icon" type="image/png" sizes="16x16" href="https://solar2d.com/images/icon-16x16.png">
   <link rel="icon" href="/images/logo.png" type="image/png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
   <link rel="stylesheet" href="styles.css">
 
@@ -47,7 +48,7 @@
             <h1>Awesome 2D<br/>Game Engine</h1>
             <p>
               <a class="button icon-github" href="https://github.com/coronalabs/corona" target="_blank"> GitHub</a>
-              <a class="button icon-download" href="https://github.com/coronalabs/corona/releases" target="_blank"> Downloads</a>
+              <a class="button icon-download" onclick="showDownloadOverlay()" href="#download"> Downloads</a>
               <a class="button support-btn icon-donate" href="#support" target="_blank"> Support</a>
               <a class="button icon-discourse" href="https://forums.solar2d.com/" target="_blank"> Forums</a>
               <a class="button icon-discord" href="https://discord.gg/WMtCemc" target="_blank"> Discord</a>
@@ -62,7 +63,7 @@
         <p class="description">
           This is a fully open source project that is forked of the well established and widely
           used Corona SDK game engine, which is no longer commercially supported.
-          Development is lead by Vlad Shcherban, former technical lead engineer at Corona Labs Inc. 
+          Development is lead by Vlad Shcherban, former technical lead engineer at Corona Labs Inc.
           If you are using this engine, consider <a href="#support">supporting</a> its development.
         </p>
       </div>
@@ -115,6 +116,72 @@
         <h2>Support the Project</h2>
         <p>Solar2D development is sponsored by its users. Support the project on <a href="https://github.com/sponsors/shchvova" target="_blank">GitHub Sponsors</a> or <a href="https://patreon.com/shchvova" target="_blank">Patreon</a>.</p>
       </div>
+    </div>
+
+    <div id="overlay">
+      <div id="downloadOverlay">
+        <a href="#" onclick="hideDownloadOverlay();" id="closeOverlay"></a>
+        <p style="font-size:35px;">Download Lastest Solar2D Simulator</p>
+        <a id="mainSimDownloadLink" class="button icon-download" style="width:50%;height:70px;margin-bottom:5px;font-size:25px;" href="https://github.com/coronalabs/corona/releases" target="_blank">&nbsp;Download Now</a>
+        <p id="mainSimDownloadInfo" style="margin-top:5px;margin-bottom:30px;"><p>
+        <a class="button icon-play" href="https://docs.coronalabs.com/guide/programming/index.html" target="_blank"> Read Getting Started Guide</a>
+        <div id="secondaryDownload" style="display:none;margin-top:40px;">
+          <p id="secondarySimDownloadInfo"> Also Available:<p>
+          <a id="secondarySimDownloadLink" class="button icon-download" style="width:30%;height:40px;font-size:15px;" href="https://github.com/coronalabs/corona/releases" target="_blank">&nbsp;Download Now</a>
+        </div>
+
+      </div>
+      <script type="text/javascript">
+        if (window.location.hash === "#download") {
+          showDownloadOverlay();
+        }
+        var macOSDownloadLink = "https://github.com/coronalabs/corona/releases",
+          windowsDownloadLink ="https://github.com/coronalabs/corona/releases";
+        function getOS() {
+          var userAgent = window.navigator.userAgent,
+              platform = window.navigator.platform,
+              macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+              windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+              os = "other";
+          if (macosPlatforms.indexOf(platform) !== -1) {
+            os = 'Mac OS';
+          } else if (windowsPlatforms.indexOf(platform) !== -1) {
+            os = 'Windows';
+          }
+          return os;
+        }
+
+        $.getJSON("https://api.github.com/repos/coronalabs/corona/releases/latest").done(function(release) {
+
+          var windowsAsset = release.assets.filter(asset => asset.name.includes("msi"))[0];
+          windowsDownloadLink = windowsAsset.browser_download_url;
+          var macOSAsset = release.assets.filter(asset => asset.name.includes("dmg"))[0];
+          macOSDownloadLink = macOSAsset.browser_download_url;
+
+          if (getOS() === "Mac OS") {
+            document.getElementById("mainSimDownloadLink").innerText=" Download For MacOS";
+            document.getElementById("mainSimDownloadLink").href=macOSDownloadLink;
+            document.getElementById("mainSimDownloadInfo").innerText=release.name;
+            document.getElementById("secondaryDownload").style.display = "block";
+            document.getElementById("secondarySimDownloadLink").innerText=" Download For Windows";
+            document.getElementById("secondarySimDownloadLink").href=windowsDownloadLink;
+
+          }else if (getOS() === "Windows"){
+            document.getElementById("mainSimDownloadLink").innerText=" Download For Windows";
+            document.getElementById("mainSimDownloadLink").href=windowsDownloadLink;
+            document.getElementById("mainSimDownloadInfo").innerText=release.name;
+            document.getElementById("secondaryDownload").style.display = "block";
+            document.getElementById("secondarySimDownloadLink").innerText=" Download For MacOS";
+            document.getElementById("secondarySimDownloadLink").href=macOSDownloadLink;
+          }
+         });
+        function showDownloadOverlay() {
+          document.getElementById("overlay").style.display = "block";
+        }
+        function hideDownloadOverlay() {
+          document.getElementById("overlay").style.display = "none";
+        }
+      </script>
     </div>
   </div>
   <div class="footer">
