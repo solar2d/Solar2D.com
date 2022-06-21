@@ -172,6 +172,9 @@ a {
 
 .footer .copyright {
   padding: 0.3em;
+  width: 50%;
+  margin: auto;
+  font-size: 1.2em;
 }
 
 .advantages .inner {
