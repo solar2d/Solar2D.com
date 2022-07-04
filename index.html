@@ -71,40 +71,55 @@
     <div class="advantages">
       <div class="inner">
         <div class="point">
+          <p class="icon-multiplatfrom"></p>
           <h3>Cross-platform</h3>
           <p>Develop for mobile, desktop, and connected TV devices with just one code base: iOS, tvOS, Android, Android TV, macOS, Windows, Linux or HTML5.</p>
         </div>
         <div class="point">
+          <p class="icon-fast"></p>
+          <h3>Build Fast</h3>
+          <p>Update your code, save the changes, and instantly see the results in our instant-update Simulator. When you're ready to test on real devices, build and deploy your app just once and then see code/assets update automatically, all over your local network. It's like magic.</p>
+          <a class="button icon-play" onclick="showVideoOverlay()" href="#liveBuilds"> Live Builds in actions</a>
+        </div>
+        <div class="point">
+          <p class="icon-plugin"></p>
           <h3>Plugins for all needs</h3>
           <p>Select from numerous plugins which extend the Solar2D core for features like in-app advertising, analytics, media, and much more. A vast variety of plugins is available via <a href="https://plugins.solar2d.com">Solar2D free directory</a> or third party stores, like <a href="http://solar2dmarketplace.com">Solar2D Marketplace</a> and <a href="https://www.solar2dplugins.com">Solar2D Plugins</a>.</p>
         </div>
         <div class="point">
+          <p class="icon-native"></p>
           <h3>Call any native library</h3>
           <p>If it’s not already in the core or supported via a plugin, you can call any native (C/C++/Obj-C/Java) library or API using Solar2D Native.</p>
         </div>
         <div class="point">
+          <p class="icon-production"></p>
           <h3>Production ready</h3>
           <p>Solar2D is official fork of Corona SDK, which has been in active development for over 10 years, and used by hundreds of thousands of apps and developers.</p>
         </div>
         <div class="point">
+          <p class="icon-lua"></p>
           <h3>Lua-based</h3>
           <p>Lua is an open source scripting language designed to be lightweight, fast, yet also powerful. Lua is currently the leading scripting language in games and has been utilized in Warcraft ™, Angry Birds ™, Civilization ™ and many other popular franchises.</p>
         </div>
         <div class="point">
+          <p class="icon-free"></p>
           <h3>Completely free</h3>
           <p>No hidden fees, charges, or royalties.
              No matter if you are an indie developer or a large publisher,
              you will never pay for using the engine.</p>
         </div>
         <div class="point">
+          <p class="icon-lock"></p>
           <h3>Privacy aware</h3>
           <p>Solar2D would not track your users. No anonymized data gathering, no server calls. Nothing. Games you build only make network requests you asked for.</p>
         </div>
         <div class="point">
+          <p class="icon-people"></p>
           <h3>Community</h3>
           <p>Join a vibrant community of thousands developers using Solar2D for live games on <a href="https://forums.solar2d.com" target="_blank">Forums</a> or <a href="https://discord.gg/WMtCemc" target="_blank">Discord</a> chat.</p>
         </div>
         <div class="point">
+          <p class="icon-opensource"></p>
           <h3>Open Source</h3>
           <p>All source code and resources are available under <a href="https://opensource.org/licenses/MIT" target="_blank">MIT license</a>.</p>
         </div>
@@ -118,8 +133,8 @@
       </div>
     </div>
 
-    <div id="overlay">
-      <div id="downloadOverlay">
+    <div id="overlay" onclick="hideDownloadOverlay();hideVideoOverlay();">
+      <div id="downloadOverlay" onclick="window.event.stopPropagation();">
         <a href="#" onclick="hideDownloadOverlay();" id="closeOverlay"></a>
         <p style="font-size:35px;">Download Lastest Solar2D Simulator</p>
         <div class="button icon-download" style="height:70px;margin-bottom:5px;font-size:25px;">
@@ -137,7 +152,13 @@
         </div>
 
       </div>
+      <div id="videoOverlay" onclick="window.event.stopPropagation();">
+        <a href="#" onclick="hideVideoOverlay();" id="closeOverlay"></a>
+        <iframe style="padding-top:50px;" width="80%" height="80%" src="https://www.youtube.com/embed/peyo_97BOmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" allowfullscreen></iframe>
+      </div>
+
       <script type="text/javascript">
+        //Download Window
         if (window.location.hash === "#download") {
           showDownloadOverlay();
         }
@@ -183,9 +204,23 @@
          });
         function showDownloadOverlay() {
           document.getElementById("overlay").style.display = "flex";
+          document.getElementById("downloadOverlay").style.display = "inline";
         }
         function hideDownloadOverlay() {
           document.getElementById("overlay").style.display = "none";
+          document.getElementById("downloadOverlay").style.display = "none";
+        }
+        //Live Builds Video
+        if (window.location.hash === "#liveBuilds") {
+          showVideoOverlay();
+        }
+        function showVideoOverlay() {
+          document.getElementById("overlay").style.display = "flex";
+          document.getElementById("videoOverlay").style.display = "inline";
+        }
+        function hideVideoOverlay() {
+          document.getElementById("overlay").style.display = "none";
+          document.getElementById("videoOverlay").style.display = "none";
         }
       </script>
     </div>
