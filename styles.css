@@ -49,6 +49,13 @@
 .icon-play:before {
   content: "\69";
 }
+.icon-plugins:before {
+  content: "\78";
+  font-size: 1.3em;
+}
+.icon-code:before {
+  content: "\79";
+}
 .icon-lua:before {
   content: "\70";
   font-size: 4.0em;
@@ -89,6 +96,7 @@
   content: "\60";
   font-size: 4.0em;
 }
+
 
 @font-face {
   font-family: 'Source Sans Pro';
