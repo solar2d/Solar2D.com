@@ -1,244 +1,445 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="generator" content="Hexo 3.8.0">
-  <title>Solar2D Game Engine</title>
-  <meta charset="utf-8">
-  <meta name="description" content="Solar2D - Awesome 2D game engine">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Solar2D - Awesome 2D game engine">
+		<title>Solar2D Game Engine</title>
+		<meta charset="utf-8">
 
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="Solar2D">
-  <meta property="og:description" content="Solar2D - Awesome 2D game engine">
-  <meta property="og:image" content="https://solar2d.com/images/logo.png">
+		<meta property="og:type" content="article">
+		<meta property="og:title" content="Solar2D">
+		<meta property="og:description" content="Solar2D - Awesome 2D game engine">
+		<meta property="og:image" content="https://solar2d.com/images/logo.png">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Solar2D">
-  <meta name="twitter:description" content="Solar2D - Awesome 2D Game Engine">
-  <meta name="twitter:image" content="https://solar2d.com/images/logo.png">
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="Solar2D">
+		<meta name="twitter:description" content="Solar2D - Awesome 2D Game Engine">
+		<meta name="twitter:image" content="https://solar2d.com/images/logo.png">
 
-  <link rel="apple-touch-icon" sizes="57x57" href="https://solar2d.com/images/icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="https://solar2d.com/images/icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="https://solar2d.com/images/icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="https://solar2d.com/images/icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="https://solar2d.com/images/icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="https://solar2d.com/images/icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="https://solar2d.com/images/icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="https://solar2d.com/images/icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="https://solar2d.com/images/icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="https://solar2d.com/images/icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://solar2d.com/images/icon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="https://solar2d.com/images/icon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://solar2d.com/images/icon-16x16.png">
-  <link rel="icon" href="/images/logo.png" type="image/png">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<link rel="apple-touch-icon" sizes="57x57" href="https://solar2d.com/images/icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="https://solar2d.com/images/icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="https://solar2d.com/images/icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="https://solar2d.com/images/icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="https://solar2d.com/images/icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="https://solar2d.com/images/icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="https://solar2d.com/images/icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="https://solar2d.com/images/icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="https://solar2d.com/images/icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192" href="https://solar2d.com/images/icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="https://solar2d.com/images/icon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="https://solar2d.com/images/icon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="https://solar2d.com/images/icon-16x16.png">
+		<link rel="icon" href="/images/logo.png" type="image/png">
 
-  <link rel="stylesheet" href="styles.css">
+		<link rel="preload" href="./fonts/SourceSansPro-Light.ttf" as="font" type="font/ttf" crossorigin>
 
-</head>
-<body>
-  <div class="content">
-    <div id="header">
-      <div class="inner">
-        <div class="left">
-          <div class="lr">
-            <img src="images/logo-banner.svg" height="145px" alt="Solar2D Logo"/>
-          </div>
-        </div><div class="right">
-          <div class="lr">
-            <h1>Awesome 2D<br/>Game Engine</h1>
-            <p>
-              <a class="button icon-github" href="https://github.com/coronalabs/corona" target="_blank"> GitHub</a>
-              <a class="button icon-download" onclick="showDownloadOverlay()" href="#download"> Downloads</a>
-              <a class="button support-btn icon-donate" href="#support" target="_blank"> Support</a>
-              <a class="button icon-discourse" href="https://forums.solar2d.com/" target="_blank"> Forums</a>
-              <a class="button icon-discord" href="https://discord.gg/WMtCemc" target="_blank"> Discord</a>
-              <a class="button icon-docs" href="https://coronadocs.com" target="_blank"> Documentaton</a>
-              <a class="button icon-play" href="https://playground.solar2d.com" target="_blank"> Try Now!</a>
-              <a class="button icon-plugins" href="https://plugins.solar2d.com" target="_blank"> View Plugins</a>
-              <a class="button icon-code" href="https://code.solar2d.com" target="_blank"> Code Exchange</a>
-            </p>
-          </div>
-        </div>
-        <h2>
-          Solar2D is a Lua based game engine with focus on ease of iterations and usage<br/>
-        </h2>
-        <p class="description">
-          This is a fully open source project that is forked of the well established and widely
-          used Corona SDK game engine, which is no longer commercially supported.
-          Development is lead by Vlad Shcherban, former technical lead engineer at Corona Labs Inc.
-          If you are using this engine, consider <a href="#support">supporting</a> its development.
-        </p>
-      </div>
-    </div>
-    <div class="advantages">
-      <div class="inner">
-        <div class="point">
-          <p class="icon-multiplatfrom"></p>
-          <h3>Cross-platform</h3>
-          <p>Develop for mobile, desktop, and connected TV devices with just one code base: iOS, tvOS, Android, Android TV, macOS, Windows, Linux or HTML5.</p>
-        </div>
-        <div class="point">
-          <p class="icon-fast"></p>
-          <h3>Build Fast</h3>
-          <p>Update your code, save the changes, and instantly see the results in our instant-update Simulator. When you're ready to test on real devices, build and deploy your app just once and then see code/assets update automatically, all over your local network. It's like magic.</p>
-          <a class="button icon-play" onclick="showVideoOverlay()" href="#liveBuilds"> Live Builds in actions</a>
-        </div>
-        <div class="point">
-          <p class="icon-plugin"></p>
-          <h3>Plugins for all needs</h3>
-          <p>Select from numerous plugins which extend the Solar2D core for features like in-app advertising, analytics, media, and much more. A vast variety of plugins is available via <a href="https://plugins.solar2d.com">Solar2D free directory</a> or third party stores, like <a href="http://solar2dmarketplace.com">Solar2D Marketplace</a> and <a href="https://www.solar2dplugins.com">Solar2D Plugins</a>.</p>
-        </div>
-        <div class="point">
-          <p class="icon-native"></p>
-          <h3>Call any native library</h3>
-          <p>If it’s not already in the core or supported via a plugin, you can call any native (C/C++/Obj-C/Java) library or API using Solar2D Native.</p>
-        </div>
-        <div class="point">
-          <p class="icon-production"></p>
-          <h3>Production ready</h3>
-          <p>Solar2D is official fork of Corona SDK, which has been in active development for over 10 years, and used by hundreds of thousands of apps and developers.</p>
-        </div>
-        <div class="point">
-          <p class="icon-lua"></p>
-          <h3>Lua-based</h3>
-          <p>Lua is an open source scripting language designed to be lightweight, fast, yet also powerful. Lua is currently the leading scripting language in games and has been utilized in Warcraft ™, Angry Birds ™, Civilization ™ and many other popular franchises.</p>
-        </div>
-        <div class="point">
-          <p class="icon-free"></p>
-          <h3>Completely free</h3>
-          <p>No hidden fees, charges, or royalties.
-             No matter if you are an indie developer or a large publisher,
-             you will never pay for using the engine.</p>
-        </div>
-        <div class="point">
-          <p class="icon-lock"></p>
-          <h3>Privacy aware</h3>
-          <p>Solar2D would not track your users. No anonymized data gathering, no server calls. Nothing. Games you build only make network requests you asked for.</p>
-        </div>
-        <div class="point">
-          <p class="icon-people"></p>
-          <h3>Community</h3>
-          <p>Join a vibrant community of thousands developers using Solar2D for live games on <a href="https://forums.solar2d.com" target="_blank">Forums</a> or <a href="https://discord.gg/WMtCemc" target="_blank">Discord</a> chat.</p>
-        </div>
-        <div class="point">
-          <p class="icon-opensource"></p>
-          <h3>Open Source</h3>
-          <p>All source code and resources are available under <a href="https://opensource.org/licenses/MIT" target="_blank">MIT license</a>.</p>
-        </div>
-      </div>
-    </div>
-    <div class="support">
-      <a id="support"></a>
-      <div class="inner">
-        <h2>Support the Project</h2>
-        <p>Solar2D development is sponsored by its users. Support the project on <a href="https://github.com/sponsors/shchvova" target="_blank">GitHub Sponsors</a> or <a href="https://patreon.com/shchvova" target="_blank">Patreon</a>.</p>
-      </div>
-    </div>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<header class="nav-wrapper">
+			<nav class="container">
+				<div class="nav-overlay">
+					<button class="nav-overlay-close">&times;</button>
+				</div>
+				<button class="nav-toggle">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="32" height="32">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+					</svg>
+				</button>
+				<div class="nav-left">
+					<a class="icon-play" href="https://playground.solar2d.com" target="_blank"><span>Try Now!</span></a>
+					<a class="icon-plugins" href="https://plugins.solar2d.com" target="_blank"><span>View Plugins</span></a>
+					<a class="icon-code" href="https://code.solar2d.com" target="_blank"><span>Code Exchange</span></a>
+					<a class="icon-donate" href="#support"><span>Support</span></a>
+				</div>
 
-    <div id="overlay" onclick="hideDownloadOverlay();hideVideoOverlay();">
-      <div id="downloadOverlay" onclick="window.event.stopPropagation();">
-        <a href="#" onclick="hideDownloadOverlay();" id="closeOverlay"></a>
-        <p style="font-size:35px;">Download Lastest Solar2D Simulator</p>
-        <div class="button icon-download" style="height:70px;margin-bottom:5px;font-size:25px;">
-          <a id="mainSimDownloadLink" href="https://github.com/coronalabs/corona/releases">&nbsp;Download Now</a>
-        </div>
+				<div class="nav-right">
+					<a class="icon icon-discord" href="https://discord.gg/WMtCemc" target="_blank"></a>
+					<a class="icon icon-discourse" href="https://forums.solar2d.com/" target="_blank"></a>
+					<a class="icon icon-github" href="https://github.com/coronalabs/corona" target="_blank"></a>
+				</div>
+			</nav>
+		</header>
 
-        <p id="mainSimDownloadInfo" style="margin-top:5px;margin-bottom:30px;"><p>
-        <a class="button icon-play" href="https://docs.coronalabs.com/guide/programming/index.html" target="_blank"> Read Getting Started Guide</a>
-        <div id="secondaryDownload" style="display:none;margin-top:40px;">
-          <p id="secondarySimDownloadInfo"> Also Available:<p>
-            <div class="button icon-download" style="height:40px;font-size:15px;">
-              <a id="secondarySimDownloadLink" href="https://github.com/coronalabs/corona/releases" target="_blank">&nbsp;Download Now</a>
-            </div>
+		<div class="hero">
+			<div class="inner container">
+				<img src="images/logo-banner.svg" height="145px" alt="Solar2D Logo" class="logo" />
+				<h1>Awesome 2D Game Engine</h1>
+				<h2>Solar2D is a Lua based game engine with focus on ease of iterations and usage</h2>
+				<p class="description">
+					This is a fully open source project that is forked of the well established and widely used Corona SDK game engine, which is no longer commercially supported. Development is lead by Vlad Shcherban, former technical lead engineer at
+					Corona Labs Inc. If you are using this engine, consider <a href="#support">supporting</a> its development.
+				</p>
+				<a class="button button-secondary icon-docs" href="https://playground.solar2d.com" target="_blank">Documentation</a>
+				<a class="button icon-download" onclick="showDownloadOverlay()" href="#download">Download</a>
+			</div>
 
-        </div>
+			<a class="demo-info" href="#">
+				<strong class="demo-info-name"></strong> by <strong class="demo-info-author"></strong>
+			</a>
+		</div>
 
-      </div>
-      <div id="videoOverlay" onclick="window.event.stopPropagation();">
-        <a href="#" onclick="hideVideoOverlay();" id="closeOverlay"></a>
-        <iframe style="padding-top:50px;" width="80%" height="80%" src="https://www.youtube.com/embed/peyo_97BOmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" allowfullscreen></iframe>
-      </div>
+		<div class="content">
+			<div class="advantages">
+				<h1 class="section-title">Advantages</h1>
+				
+				<div class="inner container">
+					<!--<div class="point">
+						<p class="icon-multiplatfrom"></p>
+						<h3>Cross-platform</h3>
+						<p class="point-info">Develop for mobile, desktop, and connected TV devices with just one code base: iOS, tvOS, Android, Android TV, macOS, Windows, Linux or HTML5.</p>
+					</div>-->
+					<div class="point">
+						<p class="icon-fast"></p>
+						<h3>Build Fast</h3>
+						<p class="point-info">
+							Update your code, save the changes, and instantly see the results in our instant-update Simulator. When you're ready to test on real devices, build and deploy your app just once and then see code/assets update automatically,
+							all over your local network. It's like magic.
+						</p>
+						<a class="button icon-play" onclick="showVideoOverlay()" href="#liveBuilds">Live Builds in actions</a>
+					</div>
+					<div class="point">
+						<p class="icon-plugin"></p>
+						<h3>Plugins for all needs</h3>
+						<p class="point-info">
+							Select from numerous plugins which extend the Solar2D core for features like in-app advertising, analytics, media, and much more. A vast variety of plugins is available via
+							<a href="https://plugins.solar2d.com">Solar2D free directory</a> or third party stores, like <a href="http://solar2dmarketplace.com">Solar2D Marketplace</a> and <a href="https://www.solar2dplugins.com">Solar2D Plugins</a>.
+						</p>
+					</div>
+					<div class="point">
+						<p class="icon-native"></p>
+						<h3>Call any native library</h3>
+						<p class="point-info">If it’s not already in the core or supported via a plugin, you can call any native (C/C++/Obj-C/Java) library or API using Solar2D Native.</p>
+					</div>
+					<div class="point">
+						<p class="icon-production"></p>
+						<h3>Production ready</h3>
+						<p class="point-info">Solar2D is official fork of Corona SDK, which has been in active development for over 10 years, and used by hundreds of thousands of apps and developers.</p>
+					</div>
+					<div class="point">
+						<p class="icon-lua"></p>
+						<h3>Lua-based</h3>
+						<p class="point-info">
+							Lua is an open source scripting language designed to be lightweight, fast, yet also powerful. Lua is currently the leading scripting language in games and has been utilized in Warcraft ™, Angry Birds ™, Civilization ™ and many
+							other popular franchises.
+						</p>
+					</div>
+					<div class="point">
+						<p class="icon-code"></p>
+						<h3>Beginner friendly</h3>
+						<p class="point-info">Solar2D is a beginner-friendly game engine due to its easy-to-learn Lua scripting language, extensive documentation, live device testing, and free and open-source nature.</p>
+					</div>
+					<!-- <div class="point">
+						<p class="icon-free"></p>
+						<h3>Completely free</h3>
+						<p class="point-info">No hidden fees, charges, or royalties. No matter if you are an indie developer or a large publisher, you will never pay for using the engine.</p>
+					</div> -->
+					<!-- <div class="point">
+						<p class="icon-lock"></p>
+						<h3>Privacy aware</h3>
+						<p class="point-info">Solar2D would not track your users. No anonymized data gathering, no server calls. Nothing. Games you build only make network requests you asked for.</p>
+					</div> -->
+					<!-- <div class="point">
+						<p class="icon-people"></p>
+						<h3>Community</h3>
+						<p class="point-info">
+							Join a vibrant community of thousands developers using Solar2D for live games on <a href="https://forums.solar2d.com" target="_blank">Forums</a> or <a href="https://discord.gg/WMtCemc" target="_blank">Discord</a> chat.
+						</p>
+					</div> -->
+					<!-- <div class="point">
+						<p class="icon-opensource"></p>
+						<h3>Open Source</h3>
+						<p class="point-info">All source code and resources are available under <a href="https://opensource.org/licenses/MIT" target="_blank">MIT license</a>.</p>
+					</div> -->
+				</div>
+			</div>
 
-      <script type="text/javascript">
-        //Download Window
-        if (window.location.hash === "#download") {
-          showDownloadOverlay();
-        }
-        var macOSDownloadLink = "https://github.com/coronalabs/corona/releases",
-          windowsDownloadLink ="https://github.com/coronalabs/corona/releases";
-        function getOS() {
-          var userAgent = window.navigator.userAgent,
-              platform = window.navigator.platform,
-              macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
-              windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
-              os = "other";
-          if (macosPlatforms.indexOf(platform) !== -1) {
-            os = 'Mac OS';
-          } else if (windowsPlatforms.indexOf(platform) !== -1) {
-            os = 'Windows';
-          }
-          return os;
-        }
+			<section class="cross-platform">
+				<h2 class="section-title">Cross Platform</h2>
 
-        $.getJSON("https://api.github.com/repos/coronalabs/corona/releases/latest").done(function(release) {
+				<div class="container">
+					<div class="info">
+						<p>Develop with just one code base, publish your game to all of the major platforms:</p>
+						<p><strong>Desktop;</strong> Windows, MacOS, Linux</p>
+						<p><strong>Mobile;</strong> Android, IOS</p>
+						<!-- <p><strong>Console;</strong> ?</p> -->
+						<p><strong>TV;</strong> AndroidTV, tvOS</p>
+						<p><strong>and;</strong> Web</p>
+					</div>
 
-          var windowsAsset = release.assets.filter(asset => asset.name.includes("msi"))[0];
-          windowsDownloadLink = windowsAsset.browser_download_url;
-          var macOSAsset = release.assets.filter(asset => asset.name.includes("dmg"))[0];
-          macOSDownloadLink = macOSAsset.browser_download_url;
+					<div class="visual">
+						<img src="images/platform/windows.webp">
+						<img src="images/platform/macos.webp">
+						<img src="images/platform/linux.webp">
+						<img src="images/platform/android.webp">
+						<img src="images/platform/ios.webp">
+						<img class="androidtv" src="images/platform/androidtv.webp">
+						<img src="images/platform/appletv.webp">
+						<img src="images/platform/web.webp">
+					</div>
+				</div>
+			</section>
 
-          if (getOS() === "Mac OS") {
-            document.getElementById("mainSimDownloadLink").innerText=" Download For MacOS";
-            document.getElementById("mainSimDownloadLink").href=macOSDownloadLink;
-            document.getElementById("mainSimDownloadInfo").innerText=release.name;
-            document.getElementById("secondaryDownload").style.display = "block";
-            document.getElementById("secondarySimDownloadLink").innerText=" Download For Windows";
-            document.getElementById("secondarySimDownloadLink").href=windowsDownloadLink;
+			<section class="community">
+				<h2 class="section-title">Community</h2>
 
-          }else if (getOS() === "Windows"){
-            document.getElementById("mainSimDownloadLink").innerText=" Download For Windows";
-            document.getElementById("mainSimDownloadLink").href=windowsDownloadLink;
-            document.getElementById("mainSimDownloadInfo").innerText=release.name;
-            document.getElementById("secondaryDownload").style.display = "block";
-            document.getElementById("secondarySimDownloadLink").innerText=" Download For MacOS";
-            document.getElementById("secondarySimDownloadLink").href=macOSDownloadLink;
-          }
-         });
-        function showDownloadOverlay() {
-          document.getElementById("overlay").style.display = "flex";
-          document.getElementById("downloadOverlay").style.display = "inline";
-        }
-        function hideDownloadOverlay() {
-          document.getElementById("overlay").style.display = "none";
-          document.getElementById("downloadOverlay").style.display = "none";
-        }
-        //Live Builds Video
-        if (window.location.hash === "#liveBuilds") {
-          showVideoOverlay();
-        }
-        function showVideoOverlay() {
-          document.getElementById("overlay").style.display = "flex";
-          document.getElementById("videoOverlay").style.display = "inline";
-        }
-        function hideVideoOverlay() {
-          document.getElementById("overlay").style.display = "none";
-          document.getElementById("videoOverlay").style.display = "none";
-        }
-      </script>
-    </div>
-  </div>
-  <div class="footer">
-    <div class="links">
-      <a class="icon-facebook" href="https://fb.com/solar2d" target="_blank"></a>
-      <a class="icon-patreon" href="https://patreon.com/shchvova" target="_blank"></a>
-      <a class="icon-github" href="https://github.com/coronalabs/corona" target="_blank"></a>
-    </div>
-    <div class="copyright">
-      Released under the <a href="/LICENSE.txt" target="_blank">MIT license</a><br/><hr/>
-<!--       Solar2D LLC <br/>
-      30 N Gould St Ste R Sheridan, WY 82801 <br/>
-      solar2d@solar2d.com; <a href="tel:530-586-8546">(530) 586-8546</a><br/> -->
-    </div>
-  </div>
-</body>
+				<div class="container">
+					<p>Join a vibrant community of thousands developers using Solar2D for live games on <a href="https://forums.solar2d.com" target="_blank">Forums</a> or <a href="https://discord.gg/WMtCemc" target="_blank">Discord</a> chat.</p>
+
+					<h3 class="made-with-pre-title">Made with Solar2D!</h3>
+					<p>Discover what people are building.</p>
+
+					<div class="made-with">
+						<a class="made-with-item" href="https://play.google.com/store/apps/details?id=com.suiarts.DenturesAndDemons" target="_blank">
+							<img src="images/demo/denturesanddemons.png">
+							<div class="made-with-item-content">
+								<h4>Dentures and Demons</h4>
+								<p>Sui Arts</p>
+								<p class="download-count"><span class="icon-download"></span>1M+</p>
+							</div>
+						</a>
+
+						<a class="made-with-item" href="https://play.google.com/store/apps/details?id=com.orange.word.puzzle.connect.crossword" target="_blank">
+							<img src="images/demo/findwords.png">
+							<div class="made-with-item-content">
+								<h4>Find Words</h4>
+								<p>Orange Studios Games</p>
+								<p class="download-count"><span class="icon-download"></span>1M+</p>
+							</div>
+						</a>
+
+						<a class="made-with-item" href="https://play.google.com/store/apps/details?id=com.zutgames.ilovehue" target="_blank">
+							<img src="images/demo/ilovehue.png">
+							<div class="made-with-item-content">
+								<h4>I Love Hue</h4>
+								<p>Zut</p>
+								<p class="download-count"><span class="icon-download"></span>10M+</p>
+							</div>
+						</a>
+
+						<a href="https://madewithsolar2d.com" target="_blank" class="more-link">Explore more</a>
+					</div>
+
+					<!-- <a class="button">Explore more</a> -->
+				</div>
+			</section>
+
+			<section class="open-source">
+				<h2 class="section-title">Open Source</h2>
+
+				<div class="container">
+					<p class="chip">
+						<span class="icon icon-opensource"></span>
+						<span><strong>Open Source: </strong>All source code and resources are available under <a href="https://opensource.org/licenses/MIT" target="_blank">MIT license</a>.
+						</span>
+					</p>
+
+					<p class="chip">
+						<span class="icon icon-lock"></span>
+						<span><strong>Privacy aware: </strong>Solar2D would not track your users. No anonymized data gathering, no server calls. Nothing. Games you build only make network requests you asked for.</span>
+					</p>
+
+					<p class="chip">
+						<span class="icon icon-github"></span>
+						<span><strong>Contribute: </strong>Follow the development of Solar2D on <a href="https://github.com/coronalabs/corona" target="_blank">GitHub</a> and contribute.</span>
+					</p>
+
+					<p class="chip">
+						<span class="icon icon-free"></span>
+						<span><strong>Completely Free: </strong>No hidden fees, charges, or royalties. No matter if you are an indie developer or a large publisher, you will never pay for using the engine.</span>
+					</p>
+				</div>
+			</section>
+
+			<section class="cta">
+				<div class="cta-content container">
+					<h2 class="section-title">Start Your Journey Today!</h2>
+					<button class="button button--large icon-download" onclick="showDownloadOverlay()">Download</button>
+				</div>
+			</section>
+
+			<div class="support">
+				<a id="support"></a>
+				<div class="inner">
+					<h2>Support the Project</h2>
+					<p>Solar2D development is sponsored by its users. Support the project on <a href="https://github.com/sponsors/shchvova" target="_blank">GitHub Sponsors</a> or <a href="https://patreon.com/shchvova" target="_blank">Patreon</a>.</p>
+				</div>
+			</div>
+
+			<div id="overlay" onclick="hideDownloadOverlay();hideVideoOverlay();">
+				<div id="downloadOverlay" onclick="window.event.stopPropagation();">
+					<a href="#" onclick="hideDownloadOverlay();" id="closeOverlay"></a>
+					<p style="font-size: 35px;">Download Lastest Solar2D Simulator</p>
+					<div class="button icon-download" style="height: 70px; margin-bottom: 5px; font-size: 25px;">
+						<a id="mainSimDownloadLink" href="https://github.com/coronalabs/corona/releases">Download Now</a>
+					</div>
+
+					<p id="mainSimDownloadInfo" style="margin-top: 5px; margin-bottom: 30px;"></p>
+					<p>
+						<a class="button icon-play" href="https://docs.coronalabs.com/guide/programming/index.html" target="_blank"> Read Getting Started Guide</a>
+					</p>
+
+					<div id="secondaryDownload" style="display: none; margin-top: 40px;">
+						<p id="secondarySimDownloadInfo">Also Available:</p>
+						<p></p>
+						<div class="button icon-download" style="height: 40px; font-size: 15px;">
+							<a id="secondarySimDownloadLink" href="https://github.com/coronalabs/corona/releases" target="_blank">Download Now</a>
+						</div>
+					</div>
+				</div>
+				<div id="videoOverlay" onclick="window.event.stopPropagation();">
+					<a href="#" onclick="hideVideoOverlay();" id="closeOverlay"></a>
+					<iframe
+						style="padding-top: 50px;"
+						width="80%"
+						height="80%"
+						src="https://www.youtube.com/embed/peyo_97BOmI"
+						title="YouTube video player"
+						frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
+						allowfullscreen
+						></iframe>
+				</div>
+			</div>
+		</div>
+
+		<footer class="footer">
+			<div class="links">
+				<a class="icon icon-facebook" href="https://fb.com/solar2d" target="_blank"></a>
+				<a class="icon icon-patreon" href="https://patreon.com/shchvova" target="_blank"></a>
+				<a class="icon icon-github" href="https://github.com/coronalabs/corona" target="_blank"></a>
+			</div>
+
+			<div class="copyright">
+				Released under the <a href="/LICENSE.txt" target="_blank">MIT license</a><br />
+				<hr />
+				<!--       Solar2D LLC <br/>
+				30 N Gould St Ste R Sheridan, WY 82801 <br/>
+				solar2d@solar2d.com; <a href="tel:530-586-8546">(530) 586-8546</a><br/> -->
+			</div>
+		</footer>
+
+		<script>
+			//Download Window
+			if (window.location.hash === "#download") {
+				showDownloadOverlay();
+			}
+
+			var macOSDownloadLink = "https://github.com/coronalabs/corona/releases",
+				windowsDownloadLink = "https://github.com/coronalabs/corona/releases";
+
+			function getOS() {
+				var userAgent = window.navigator.userAgent,
+					platform = window.navigator.platform,
+					macosPlatforms = ["Macintosh", "MacIntel", "MacPPC", "Mac68K"],
+					windowsPlatforms = ["Win32", "Win64", "Windows", "WinCE"],
+					os = "other";
+
+				if (macosPlatforms.indexOf(platform) !== -1) {
+					os = "Mac OS";
+				} else if (windowsPlatforms.indexOf(platform) !== -1) {
+					os = "Windows";
+				}
+
+				return os;
+			}
+
+			fetch("https://api.github.com/repos/coronalabs/corona/releases/latest")
+				.then(res => res.json())
+				.then(release => {
+					var windowsAsset = release.assets.filter((asset) => asset.name.includes("msi"))[0];
+					windowsDownloadLink = windowsAsset.browser_download_url;
+					var macOSAsset = release.assets.filter((asset) => asset.name.includes("dmg"))[0];
+					macOSDownloadLink = macOSAsset.browser_download_url;
+
+					if (getOS() === "Mac OS") {
+						document.getElementById("mainSimDownloadLink").innerText = " Download For MacOS";
+						document.getElementById("mainSimDownloadLink").href = macOSDownloadLink;
+						document.getElementById("mainSimDownloadInfo").innerText = release.name;
+						document.getElementById("secondaryDownload").style.display = "block";
+						document.getElementById("secondarySimDownloadLink").innerText = " Download For Windows";
+						document.getElementById("secondarySimDownloadLink").href = windowsDownloadLink;
+					} else if (getOS() === "Windows") {
+						document.getElementById("mainSimDownloadLink").innerText = " Download For Windows";
+						document.getElementById("mainSimDownloadLink").href = windowsDownloadLink;
+						document.getElementById("mainSimDownloadInfo").innerText = release.name;
+						document.getElementById("secondaryDownload").style.display = "block";
+						document.getElementById("secondarySimDownloadLink").innerText = " Download For MacOS";
+						document.getElementById("secondarySimDownloadLink").href = macOSDownloadLink;
+					}
+				});
+
+			function showDownloadOverlay() {
+				document.getElementById("overlay").style.display = "flex";
+				document.getElementById("downloadOverlay").style.display = "inline";
+			}
+			function hideDownloadOverlay() {
+				document.getElementById("overlay").style.display = "none";
+				document.getElementById("downloadOverlay").style.display = "none";
+			}
+			//Live Builds Video
+			if (window.location.hash === "#liveBuilds") {
+				showVideoOverlay();
+			}
+			function showVideoOverlay() {
+				document.getElementById("overlay").style.display = "flex";
+				document.getElementById("videoOverlay").style.display = "inline";
+			}
+			function hideVideoOverlay() {
+				document.getElementById("overlay").style.display = "none";
+				document.getElementById("videoOverlay").style.display = "none";
+			}
+		</script>
+
+		<script defer>
+			const demoApps = [
+				{
+					name: "Puzzles for Clef",
+					author: "Weasel Token",
+					imgId: "puzzlesforclef",
+					link: "https://store.steampowered.com/app/1802190/Puzzles_For_Clef",
+				},
+				{
+					name: "Infinity",
+					author: "Jaguar Studios",
+					imgId: "infinity",
+					link: "https://play.google.com/store/apps/details?id=jaguargames.infinity",
+				},
+				{
+					name: "Thinkrolls Play",
+					author: "Avokiddo",
+					imgId: "thinkrollsplay",
+					link: "https://avokiddo.com/thinkrolls-play-and-code",
+				},
+				{
+					name: "Zombie Escape",
+					author: "Famous Dogg Studios",
+					imgId: "zombieescape",
+					link: "https://play.google.com/store/apps/details?id=com.famousdoggstudios.pg",
+				},
+			];
+
+			const { name, author, imgId, link } = demoApps[Math.floor(Math.random() * demoApps.length)];
+
+			const header = document.querySelector(".hero");
+			header.style.backgroundImage = `var(--gradient), url("images/demo/${imgId}.webp")`;
+
+			header.querySelector(".demo-info").href = link;
+			header.querySelector(".demo-info-name").textContent = name;
+			header.querySelector(".demo-info-author").textContent = author;
+
+			const nav = document.querySelector("nav");
+			const navOverlay = document.querySelector(".nav-overlay");
+			const navWrapper = document.querySelector(".nav-wrapper");
+			const navToggle = document.querySelector(".nav-toggle");
+
+			navToggle.onclick = () => {
+				const state = nav.classList.toggle("visible");
+				navWrapper.style.zIndex = state ? 1 : -1;
+				document.body.style.overflowY = state ? "hidden" : "";
+			};
+
+			navOverlay.onclick = () => navToggle.onclick();
+		</script>
+	</body>
 </html>
