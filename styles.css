@@ -1,6 +1,6 @@
 @font-face {
 	font-family: "icons";
-	src: url("fonts/icons.ttf") format('truetype');
+	src: url("fonts/icons.ttf") format("truetype");
 	font-weight: normal;
 	font-style: normal;
 	font-display: block;
@@ -404,7 +404,6 @@ nav.container {
 .advantages .inner {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr));
-	/* grid-auto-rows: 23em; */
 	padding: 1em 0;
 	gap: 1em;
 }
@@ -412,14 +411,9 @@ nav.container {
 .point {
 	display: flex;
 	flex-direction: column;
-	/* justify-content: center; */
 	align-items: flex-start;
-	/* text-align: center; */
-	/* vertical-align: top; */
 	padding: 2em;
-	/* border: solid 2px #4fc08d; */
 	border-radius: 6px;
-	/* overflow: hidden; */
 	background-color: var(--ui);
 	outline: solid 1px var(--ui-active);
 	transition: background-color 250ms ease-out;
@@ -465,30 +459,8 @@ nav.container {
 }
 
 .point-info {
-	/* margin-top: 0.5em;
-	padding-bottom: 0.3em; */
 	font-size: 1rem;
 }
-
-/* @media (hover: hover) {
-.point-info {
-opacity: 0;
-}
-
-.point > * {
-transform: translateY(50%);
-transition: transform 250ms ease-out;
-}
-
-.point:hover > * {
-transform: translateY(-10%);
-}
-
-.point:hover > .point-info {
-transform: translateY(-5%);
-opacity: 1;
-}
-} */
 
 .community a,
 .open-source a,
@@ -610,18 +582,7 @@ opacity: 1;
 	justify-items: center;
 	align-items: center;
 	user-select: none;
-	/* transform: skewX(-10deg); */
 }
-
-/* .cross-platform .visual::after {
-content: "";
-position: absolute;
-right: 0;
-top: 0;
-width: 100%;
-height: 100%;
-background: linear-gradient(to right, var(--bg), transparent 65%);
-} */
 
 .cross-platform .visual > img {
 	width: 50px;
@@ -651,13 +612,8 @@ background: linear-gradient(to right, var(--bg), transparent 65%);
 	max-width: 65ch;
 	margin: 0;
 	padding: 1em;
-	/* background-color: var(--ui); */
 	border-radius: 2em;
 	transition: background-color 250ms ease-in;
-}
-
-.chip:hover {
-	/* background-color: var(--ui-hover); */
 }
 
 .chip > .icon {
@@ -700,7 +656,6 @@ background: linear-gradient(to right, var(--bg), transparent 65%);
 .support {
 	text-align: center;
 	padding: 2em;
-	/* background-color: var(--bg-secondary); */
 }
 
 .support h2 {
@@ -967,8 +922,4 @@ a {
 	.container {
 		padding: 0 4em;
 	}
-}
-
-@media screen and (max-width: 1200px) {
-	
 }
